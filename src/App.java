@@ -7,13 +7,20 @@ public class App {
                 """);
         double num=0;
         double sumaNum=0;
-        double contador=0;
+        int contador=0;
         do{
-            num = Double.parseDouble(System.console().readLine());
-            contador++;
-            sumaNum = sumaNum+num;
+            try{
+                num = Double.parseDouble(System.console().readLine());
+                contador++;
+                sumaNum = sumaNum+num;
+            }catch(NumberFormatException e){
+                System.out.println("Error, entrada no válida.");
+            }catch(Exception e){
+                System.out.println("Error inesperado.");
+            }
+            
         }while(num>=0);
         
-        System.out.printf("La media de los números positivos introducidos es %.2f",sumaNum/contador);
+        System.out.printf("La media de los números positivos introducidos es %.2f",sumaNum/(contador-1));
     }
 }
